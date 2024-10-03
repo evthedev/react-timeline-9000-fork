@@ -2,7 +2,6 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom';
 import {Grid, AutoSizer, defaultCellRangeRenderer} from 'react-virtualized';
 
 import moment from 'moment';
@@ -224,7 +223,8 @@ export default class Timeline extends React.Component {
     window.addEventListener('resize', this.updateDimensions);
   }
 
-  componentWillReceiveProps(nextProps) {
+  // See https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#migrating-from-legacy-lifecycles
+  UNSAFE_componentWillReceiveProps(nextProps) {
     this.setTimeMap(
       nextProps.items,
       convertDateToMoment(nextProps.startDate, nextProps.useMoment),
@@ -1002,7 +1002,18 @@ export default class Timeline extends React.Component {
    */
   grid_ref_callback(reactComponent) {
     this._grid = reactComponent;
-    this._gridDomNode = ReactDOM.findDOMNode(this._grid);
+    /* As of React 18, ReactDOM.findDOMNode is no longer supported.
+     *
+     * React recommends React.createRef() in the constructor but this breaks existing functionality
+     * like drag and resize.
+     *
+     * https://legacy.reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage
+     *
+     * However this is used in only place: the `ref` prop in the React-virtualized Grid components.
+     * This component exposes internal DOM elements through properties like _scrollingContainer
+     * which we are able to assign to this._gridDomNode to access the internal DOM element.
+     */
+    this._gridDomNode = reactComponent?._scrollingContainer;
   }
 
   /**

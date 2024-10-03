@@ -43,11 +43,15 @@
   "main": "lib/index.js",
   "homepage": "https://github.com/React9k/react-timeline-9000#readme",
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@storybook/addon-actions": "^6.3.11",
-    "@storybook/addon-essentials": "^6.3.11",
-    "@storybook/addon-links": "^6.3.11",
-    "@storybook/react": "^6.3.11",
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.25.7",
+    "@babel/preset-env": "^7.25.7",
+    "@babel/preset-react": "^7.25.7",
+    "@babel/register": "^7.25.7",
+    "@storybook/addon-actions": "^8.3.4",
+    "@storybook/addon-essentials": "^8.3.4",
+    "@storybook/addon-links": "^8.3.4",
+    "@storybook/react": "^8.3.4",
     "antd": "^3.6.5",
     "babel-loader": "^8.2.5",
     "chai": "^4.1.2",
@@ -70,10 +74,10 @@
     "ignore-styles": "^5.0.1",
     "jsdom": "^16.5.0",
     "lint-staged": "8.2.1",
-    "mocha": "^5.2.0",
+    "mocha": "^9.0.0",
     "prettier": "^1.13.5",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "style-loader": "^0.21.0",
     "tern": "^0.21.0",
     "uglifyjs-webpack-plugin": "^2.2.0",
@@ -90,7 +94,19 @@
     "react-virtualized": "^9.19.1"
   },
   "peerDependencies": {
-    "react": "^16.4.1 || ^17.0.0",
-    "react-dom": "^16.4.1 || ^17.0.0"
+    "react": "^16.4.1 || ^17.0.0 || ^18.3.1",
+    "react-dom": "^16.4.1 || ^17.0.0 || ^18.3.1"
+  },
+  "resolutions": {
+    "react-virtualized/react": "^18.3.1",
+    "react-virtualized/react-dom": "^18.3.1",
+    "antd/react": "^18.3.1",
+    "antd/react-dom": "^18.3.1",
+    "rc-resize-observer/react": "^18.3.1",
+    "rc-resize-observer/react-dom": "^18.3.1",
+    "rc-switch/react": "^18.3.1",
+    "rc-switch/react-dom": "^18.3.1",
+    "rc-table/react": "^18.3.1",
+    "rc-table/react-dom": "^18.3.1"
   }
 }
