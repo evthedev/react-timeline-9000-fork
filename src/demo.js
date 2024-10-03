@@ -57,7 +57,7 @@ export default class DemoTimeline extends Component {
     this.toggleMultipleColumnsMode = this.toggleMultipleColumnsMode.bind(this);
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.reRender();
   }
 

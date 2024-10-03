@@ -1,8 +1,10 @@
 'use strict';
 
 import React from 'react';
+import {createRoot} from 'react-dom/client';
 import ReactDOM from 'react-dom';
 
 import DemoTimeline from 'demo';
 
-ReactDOM.render(<DemoTimeline />, document.getElementById('root'));
+const root = createRoot(document.getElementById('root'));
+root.render(<DemoTimeline />);
